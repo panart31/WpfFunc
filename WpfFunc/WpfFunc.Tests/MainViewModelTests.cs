@@ -96,7 +96,7 @@ namespace WpfFunc.Tests
         {
             var viewModel = new MainViewModel();
             string initialText = viewModel.DefaultText;
-            viewModel.UpdateCommand.Execute(null);
+            viewModel.UpdateCommand?.Execute(null);
             Assert.NotEqual(initialText, viewModel.DefaultText);
             Assert.Contains("Обновлено:", viewModel.DefaultText);
         }
@@ -107,7 +107,7 @@ namespace WpfFunc.Tests
             var viewModel = new MainViewModel();
             viewModel.TwoWayText = "Тест";
             viewModel.SourceText = "Тест";
-            viewModel.ClearCommand.Execute(null);
+            viewModel.ClearCommand?.Execute(null);
             Assert.Equal("", viewModel.TwoWayText);
             Assert.Equal("", viewModel.SourceText);
         }
@@ -124,7 +124,7 @@ namespace WpfFunc.Tests
         {
             var viewModel = new MainViewModel();
             int initialCount = viewModel.Items.Count;
-            viewModel.AddItemCommand.Execute(null);
+            viewModel.AddItemCommand?.Execute(null);
             Assert.Equal(initialCount + 1, viewModel.Items.Count);
         }
     }

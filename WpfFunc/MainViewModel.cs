@@ -56,21 +56,30 @@ namespace WpfFunc
         // Коллекция элементов для демонстрации привязки коллекций
         public ObservableCollection<string> Items { get; } = new();
 
-        // Команда через атрибут [RelayCommand] - автоматически генерирует команду UpdateCommand
+        /// <summary>
+        /// Команда через атрибут [RelayCommand] - автоматически генерирует команду UpdateCommand.
+        /// Source generator создаёт публичное свойство UpdateCommand типа IRelayCommand.
+        /// </summary>
         [RelayCommand]
         private void Update()
         {
             DefaultText = $"Обновлено: {DateTime.Now:HH:mm:ss}";
         }
 
-        // Автоматическая генерация ToggleCommand через source generator
+        /// <summary>
+        /// Автоматическая генерация ToggleCommand через source generator.
+        /// Метод Toggle преобразуется в команду ToggleCommand с реализацией ICommand.
+        /// </summary>
         [RelayCommand]
         private void Toggle()
         {
             IsActive = !IsActive;
         }
 
-        // Команда очистки с автоматической реализацией ICommand через библиотеку
+        /// <summary>
+        /// Команда очистки с автоматической реализацией ICommand через библиотеку.
+        /// Демонстрирует использование атрибутов для упрощения MVVM паттерна.
+        /// </summary>
         [RelayCommand]
         private void Clear()
         {
@@ -78,21 +87,30 @@ namespace WpfFunc
             SourceText = "";
         }
 
-        // Команда добавления элемента - генерация через CommunityToolkit.MVVM
+        /// <summary>
+        /// Команда добавления элемента - генерация через CommunityToolkit.MVVM.
+        /// Показывает автоматическое создание команд без ручной реализации ICommand.
+        /// </summary>
         [RelayCommand]
         private void AddItem()
         {
             Items.Add($"Элемент {Items.Count + 1}");
         }
 
-        // Инициализация ViewModel с начальными данными
+        /// <summary>
+        /// Инициализация ViewModel с начальными данными.
+        /// Заполняет коллекцию примерами для демонстрации привязки коллекций.
+        /// </summary>
         public MainViewModel()
         {
             Items.Add("Пример 1");
             Items.Add("Пример 2");
         }
 
-        // Свойство текущего времени для демонстрации динамической привязки
+        /// <summary>
+        /// Свойство текущего времени для демонстрации динамической привязки.
+        /// Возвращает текущее время при каждом обращении.
+        /// </summary>
         public DateTime CurrentTime => DateTime.Now;
     }
 }

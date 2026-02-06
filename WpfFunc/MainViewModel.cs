@@ -11,27 +11,45 @@ namespace WpfFunc
     /// </summary>
     public partial class MainViewModel : ObservableObject
     {
-        // Атрибут [ObservableProperty] автоматически генерирует свойство с INotifyPropertyChanged
+        /// <summary>
+        /// Атрибут [ObservableProperty] автоматически генерирует свойство DefaultText с INotifyPropertyChanged.
+        /// Source generator создаёт публичное свойство из приватного поля _defaultText.
+        /// </summary>
         [ObservableProperty]
         private string _defaultText = "Панов Артем - ЛР1";
 
-        // Автоматическая генерация свойства TwoWayText с уведомлениями через source generator
+        /// <summary>
+        /// Автоматическая генерация свойства TwoWayText с уведомлениями через source generator.
+        /// Изменения автоматически уведомляют UI благодаря CommunityToolkit.Mvvm.
+        /// </summary>
         [ObservableProperty]
         private string _twoWayText = "Двусторонний текст";
 
-        // Значение слайдера с автоматической реализацией PropertyChanged через атрибут
+        /// <summary>
+        /// Значение слайдера с автоматической реализацией PropertyChanged через атрибут.
+        /// Генерируется свойство SliderValue с поддержкой привязки данных.
+        /// </summary>
         [ObservableProperty]
         private double _sliderValue = 50;
 
-        // Флаг активности с автоматической генерацией свойства через CommunityToolkit
+        /// <summary>
+        /// Флаг активности с автоматической генерацией свойства через CommunityToolkit.
+        /// Используется для демонстрации двухсторонней привязки с CheckBox.
+        /// </summary>
         [ObservableProperty]
         private bool _isActive = true;
 
-        // Свойство только для чтения без атрибута - не требует уведомлений
+        /// <summary>
+        /// Свойство только для чтения без атрибута - не требует уведомлений.
+        /// Используется для демонстрации OneTime привязки.
+        /// </summary>
         private readonly string _oneTimeText = DateTime.Now.ToString("HH:mm:ss");
         public string OneTimeText => _oneTimeText;
 
-        // Исходный текст с автоматической реализацией через [ObservableProperty]
+        /// <summary>
+        /// Исходный текст с автоматической реализацией через [ObservableProperty].
+        /// Демонстрирует одностороннюю привязку данных.
+        /// </summary>
         [ObservableProperty]
         private string _sourceText = "Исходный текст";
 

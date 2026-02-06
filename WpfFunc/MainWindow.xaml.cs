@@ -2,9 +2,15 @@
 
 namespace WpfFunc
 {
-    // Главное окно с установкой DataContext для привязки данных через CommunityToolkit.MVVM
+    /// <summary>
+    /// Главное окно с установкой DataContext для привязки данных через CommunityToolkit.MVVM.
+    /// ViewModel использует ObservableObject из библиотеки вместо ручной реализации.
+    /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Конструктор главного окна. Инициализирует компоненты и устанавливает ViewModel.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

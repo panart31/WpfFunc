@@ -3,8 +3,10 @@ using System.Collections.ObjectModel;
 
 namespace WpfFunc
 {
+    // Основная ViewModel с данными и командами для демонстрации различных типов привязок
     public class MainViewModel : ViewModelBase
     {
+        // Свойство для демонстрации привязки по умолчанию (TwoWay для TextBox)
         private string _defaultText = "Панов Артем - ЛР1";
         public string DefaultText
         {
@@ -12,6 +14,7 @@ namespace WpfFunc
             set => SetField(ref _defaultText, value);
         }
 
+        // Свойство для демонстрации двухсторонней привязки между элементами
         private string _twoWayText = "Двусторонний текст";
         public string TwoWayText
         {
@@ -19,6 +22,7 @@ namespace WpfFunc
             set => SetField(ref _twoWayText, value);
         }
 
+        // Значение слайдера для синхронизации с другими элементами
         private double _sliderValue = 50;
         public double SliderValue
         {
@@ -26,6 +30,7 @@ namespace WpfFunc
             set => SetField(ref _sliderValue, value);
         }
 
+        // Флаг активности для демонстрации двухсторонней привязки с CheckBox
         private bool _isActive = true;
         public bool IsActive
         {
@@ -33,9 +38,11 @@ namespace WpfFunc
             set => SetField(ref _isActive, value);
         }
 
+        // Свойство только для чтения для демонстрации OneTime привязки
         private readonly string _oneTimeText = DateTime.Now.ToString("HH:mm:ss");
         public string OneTimeText => _oneTimeText;
 
+        // Исходный текст для демонстрации односторонней привязки
         private string _sourceText = "Исходный текст";
         public string SourceText
         {
@@ -43,8 +50,10 @@ namespace WpfFunc
             set => SetField(ref _sourceText, value);
         }
 
+        // Коллекция элементов для демонстрации привязки коллекций
         public ObservableCollection<string> Items { get; } = new();
 
+        // Команда обновления текста с текущим временем
         private RelayCommand _updateCommand;
         public RelayCommand UpdateCommand =>
             _updateCommand ??= new RelayCommand(() =>
@@ -52,6 +61,7 @@ namespace WpfFunc
                 DefaultText = $"Обновлено: {DateTime.Now:HH:mm:ss}";
             });
 
+        // Команда переключения состояния активности
         private RelayCommand _toggleCommand;
         public RelayCommand ToggleCommand =>
             _toggleCommand ??= new RelayCommand(() =>
@@ -59,6 +69,7 @@ namespace WpfFunc
                 IsActive = !IsActive;
             });
 
+        // Команда очистки текстовых полей
         private RelayCommand _clearCommand;
         public RelayCommand ClearCommand =>
             _clearCommand ??= new RelayCommand(() =>
@@ -67,6 +78,7 @@ namespace WpfFunc
                 SourceText = "";
             });
 
+        // Команда добавления элемента в коллекцию
         private RelayCommand _addItemCommand;
         public RelayCommand AddItemCommand =>
             _addItemCommand ??= new RelayCommand(() =>
@@ -74,12 +86,14 @@ namespace WpfFunc
                 Items.Add($"Элемент {Items.Count + 1}");
             });
 
+        // Инициализация ViewModel с начальными данными
         public MainViewModel()
         {
             Items.Add("Пример 1");
             Items.Add("Пример 2");
         }
 
+        // Свойство текущего времени для демонстрации динамической привязки
         public DateTime CurrentTime => DateTime.Now;
     }
 }

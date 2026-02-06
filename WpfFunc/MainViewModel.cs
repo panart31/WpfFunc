@@ -5,7 +5,10 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace WpfFunc
 {
-    // ViewModel с использованием CommunityToolkit.MVVM - наследование от ObservableObject вместо ручной реализации
+    /// <summary>
+    /// ViewModel с использованием CommunityToolkit.MVVM - наследование от ObservableObject вместо ручной реализации.
+    /// Использует source generators для автоматической генерации свойств и команд.
+    /// </summary>
     public partial class MainViewModel : ObservableObject
     {
         // Атрибут [ObservableProperty] автоматически генерирует свойство с INotifyPropertyChanged

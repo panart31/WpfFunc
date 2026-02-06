@@ -9,7 +9,10 @@ namespace WpfFunc
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        // Свойство для демонстрации привязки по умолчанию (TwoWay для TextBox)
+        /// <summary>
+        /// Свойство для демонстрации привязки по умолчанию (TwoWay для TextBox).
+        /// Изменения в UI автоматически синхронизируются с ViewModel.
+        /// </summary>
         private string _defaultText = "Панов Артем - ЛР1";
         public string DefaultText
         {
@@ -17,7 +20,10 @@ namespace WpfFunc
             set => SetField(ref _defaultText, value);
         }
 
-        // Свойство для демонстрации двухсторонней привязки между элементами
+        /// <summary>
+        /// Свойство для демонстрации двухсторонней привязки между элементами.
+        /// Изменения в любом связанном элементе обновляют все остальные.
+        /// </summary>
         private string _twoWayText = "Двусторонний текст";
         public string TwoWayText
         {
@@ -25,7 +31,10 @@ namespace WpfFunc
             set => SetField(ref _twoWayText, value);
         }
 
-        // Значение слайдера для синхронизации с другими элементами
+        /// <summary>
+        /// Значение слайдера для синхронизации с другими элементами.
+        /// Используется для демонстрации привязки числовых значений.
+        /// </summary>
         private double _sliderValue = 50;
         public double SliderValue
         {
@@ -33,7 +42,10 @@ namespace WpfFunc
             set => SetField(ref _sliderValue, value);
         }
 
-        // Флаг активности для демонстрации двухсторонней привязки с CheckBox
+        /// <summary>
+        /// Флаг активности для демонстрации двухсторонней привязки с CheckBox.
+        /// Определяет состояние активности приложения.
+        /// </summary>
         private bool _isActive = true;
         public bool IsActive
         {
@@ -41,11 +53,17 @@ namespace WpfFunc
             set => SetField(ref _isActive, value);
         }
 
-        // Свойство только для чтения для демонстрации OneTime привязки
+        /// <summary>
+        /// Свойство только для чтения для демонстрации OneTime привязки.
+        /// Значение устанавливается один раз при создании объекта и не изменяется.
+        /// </summary>
         private readonly string _oneTimeText = DateTime.Now.ToString("HH:mm:ss");
         public string OneTimeText => _oneTimeText;
 
-        // Исходный текст для демонстрации односторонней привязки
+        /// <summary>
+        /// Исходный текст для демонстрации односторонней привязки.
+        /// Изменения передаются только от источника к целевому элементу.
+        /// </summary>
         private string _sourceText = "Исходный текст";
         public string SourceText
         {
@@ -53,7 +71,10 @@ namespace WpfFunc
             set => SetField(ref _sourceText, value);
         }
 
-        // Коллекция элементов для демонстрации привязки коллекций
+        /// <summary>
+        /// Коллекция элементов для демонстрации привязки коллекций.
+        /// Используется ObservableCollection для автоматического обновления UI при изменениях.
+        /// </summary>
         public ObservableCollection<string> Items { get; } = new();
 
         // Команда обновления текста с текущим временем

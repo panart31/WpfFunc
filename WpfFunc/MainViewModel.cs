@@ -3,7 +3,10 @@ using System.Collections.ObjectModel;
 
 namespace WpfFunc
 {
-    // Основная ViewModel с данными и командами для демонстрации различных типов привязок
+    /// <summary>
+    /// Основная ViewModel с данными и командами для демонстрации различных типов привязок.
+    /// Содержит примеры свойств для OneWay, TwoWay, OneTime привязок и коллекций.
+    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         // Свойство для демонстрации привязки по умолчанию (TwoWay для TextBox)

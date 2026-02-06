@@ -77,7 +77,10 @@ namespace WpfFunc
         /// </summary>
         public ObservableCollection<string> Items { get; } = new();
 
-        // Команда обновления текста с текущим временем
+        /// <summary>
+        /// Команда обновления текста с текущим временем.
+        /// Демонстрирует обновление свойства через команду.
+        /// </summary>
         private RelayCommand _updateCommand;
         public RelayCommand UpdateCommand =>
             _updateCommand ??= new RelayCommand(() =>
@@ -85,7 +88,10 @@ namespace WpfFunc
                 DefaultText = $"Обновлено: {DateTime.Now:HH:mm:ss}";
             });
 
-        // Команда переключения состояния активности
+        /// <summary>
+        /// Команда переключения состояния активности.
+        /// Инвертирует значение свойства IsActive.
+        /// </summary>
         private RelayCommand _toggleCommand;
         public RelayCommand ToggleCommand =>
             _toggleCommand ??= new RelayCommand(() =>
@@ -93,7 +99,10 @@ namespace WpfFunc
                 IsActive = !IsActive;
             });
 
-        // Команда очистки текстовых полей
+        /// <summary>
+        /// Команда очистки текстовых полей.
+        /// Очищает значения свойств TwoWayText и SourceText.
+        /// </summary>
         private RelayCommand _clearCommand;
         public RelayCommand ClearCommand =>
             _clearCommand ??= new RelayCommand(() =>
@@ -102,7 +111,10 @@ namespace WpfFunc
                 SourceText = "";
             });
 
-        // Команда добавления элемента в коллекцию
+        /// <summary>
+        /// Команда добавления элемента в коллекцию.
+        /// Демонстрирует динамическое изменение коллекции с автоматическим обновлением UI.
+        /// </summary>
         private RelayCommand _addItemCommand;
         public RelayCommand AddItemCommand =>
             _addItemCommand ??= new RelayCommand(() =>
@@ -110,14 +122,20 @@ namespace WpfFunc
                 Items.Add($"Элемент {Items.Count + 1}");
             });
 
-        // Инициализация ViewModel с начальными данными
+        /// <summary>
+        /// Инициализация ViewModel с начальными данными.
+        /// Заполняет коллекцию примерами для демонстрации привязки коллекций.
+        /// </summary>
         public MainViewModel()
         {
             Items.Add("Пример 1");
             Items.Add("Пример 2");
         }
 
-        // Свойство текущего времени для демонстрации динамической привязки
+        /// <summary>
+        /// Свойство текущего времени для демонстрации динамической привязки.
+        /// Возвращает текущее время при каждом обращении.
+        /// </summary>
         public DateTime CurrentTime => DateTime.Now;
     }
 }

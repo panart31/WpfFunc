@@ -3,30 +3,55 @@ using System.Windows.Input;
 
 namespace WpfFunc
 {
-    // Реализация ICommand для выполнения команд в MVVM без использования библиотек
+    /// <summary>
+    /// Реализация ICommand для выполнения команд в MVVM без использования библиотек.
+    /// Позволяет привязывать действия к элементам UI через механизм команд WPF.
+    /// </summary>
     public class RelayCommand : ICommand
     {
-        private readonly Action _execute; // Действие для выполнения
-        private readonly Func<bool> _canExecute; // Условие возможности выполнения
+        /// <summary>
+        /// Действие для выполнения при вызове команды.
+        /// </summary>
+        private readonly Action _execute;
 
-        // Событие изменения возможности выполнения команды
+        /// <summary>
+        /// Условие возможности выполнения команды. Если null, команда всегда доступна.
+        /// </summary>
+        private readonly Func<bool> _canExecute;
+
+        /// <summary>
+        /// Событие изменения возможности выполнения команды.
+        /// Автоматически подписывается на CommandManager.RequerySuggested для обновления состояния.
+        /// </summary>
         public event EventHandler CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
 
-        // Конструктор команды с обязательным действием и опциональным условием
+        /// <summary>
+        /// Конструктор команды с обязательным действием и опциональным условием выполнения.
+        /// </summary>
+        /// <param name="execute">Действие для выполнения (обязательно)</param>
+        /// <param name="canExecute">Условие возможности выполнения (опционально)</param>
+        /// <exception cref="ArgumentNullException">Если execute равен null</exception>
         public RelayCommand(Action execute, Func<bool> canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 
-        // Проверка возможности выполнения команды
+        /// <summary>
+        /// Проверка возможности выполнения команды.
+        /// </summary>
+        /// <param name="parameter">Параметр команды (не используется в данной реализации)</param>
+        /// <returns>true, если команда может быть выполнена, иначе false</returns>
         public bool CanExecute(object parameter) => _canExecute?.Invoke() ?? true;
 
-        // Выполнение команды
+        /// <summary>
+        /// Выполнение команды.
+        /// </summary>
+        /// <param name="parameter">Параметр команды (не используется в данной реализации)</param>
         public void Execute(object parameter) => _execute();
     }
 }

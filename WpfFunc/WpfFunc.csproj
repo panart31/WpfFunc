@@ -9,7 +9,12 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
-  <!-- Пакет CommunityToolkit.MVVM для упрощения реализации MVVM через source generators -->
+  <!-- 
+    Пакет CommunityToolkit.MVVM для упрощения реализации MVVM через source generators.
+    Предоставляет атрибуты [ObservableProperty] и [RelayCommand] для автоматической генерации кода.
+    Это позволяет избежать ручной реализации INotifyPropertyChanged и ICommand.
+    Версия 8.4.0 обеспечивает поддержку .NET 8 и последние улучшения производительности.
+  -->
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
   </ItemGroup>

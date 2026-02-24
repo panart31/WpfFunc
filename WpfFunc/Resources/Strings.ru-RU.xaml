@@ -1,34 +1,35 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!-- Те же ключи, что и в RESX, но реализованы через XAML-словарь -->
 
     <!-- Общие -->
-    <x:String x:Key="App.Title">ЛР1 - Панов Артем (локализация)</x:String>
-    <x:String x:Key="Language.Russian">Русский</x:String>
-    <x:String x:Key="Language.English">Английский</x:String>
-    <x:String x:Key="Language.Caption">Язык интерфейса:</x:String>
+    <sys:String x:Key="App.Title">ЛР1 - Панов Артем (локализация)</sys:String>
+    <sys:String x:Key="Language.Russian">Русский</sys:String>
+    <sys:String x:Key="Language.English">Английский</sys:String>
+    <sys:String x:Key="Language.Caption">Язык интерфейса:</sys:String>
 
     <!-- Вкладки -->
-    <x:String x:Key="Tab.DefaultBinding">Привязка по умолчанию</x:String>
-    <x:String x:Key="Tab.TwoWayBinding">Двухсторонняя привязка</x:String>
-    <x:String x:Key="Tab.OneTimeBinding">Одноразовая привязка</x:String>
-    <x:String x:Key="Tab.OneWayBinding">Односторонняя привязка</x:String>
-    <x:String x:Key="Tab.Triggers">Триггеры</x:String>
+    <sys:String x:Key="Tab.DefaultBinding">Привязка по умолчанию</sys:String>
+    <sys:String x:Key="Tab.TwoWayBinding">Двухсторонняя привязка</sys:String>
+    <sys:String x:Key="Tab.OneTimeBinding">Одноразовая привязка</sys:String>
+    <sys:String x:Key="Tab.OneWayBinding">Односторонняя привязка</sys:String>
+    <sys:String x:Key="Tab.Triggers">Триггеры</sys:String>
 
     <!-- DefaultBindingView -->
-    <x:String x:Key="Default.Title">1. Привязка по умолчанию</x:String>
-    <x:String x:Key="Default.Group.TextBox">TextBox (TwoWay по умолчанию)</x:String>
-    <x:String x:Key="Default.Hint.Sync">Изменения в TextBox сразу обновляют TextBlock</x:String>
-    <x:String x:Key="Default.Group.Time">TextBlock (OneWay по умолчанию)</x:String>
-    <x:String x:Key="Default.Button.Update">Обновить</x:String>
-    <x:String x:Key="Default.Group.DirectVsVm">Прямая привязка vs через ViewModel</x:String>
-    <x:String x:Key="Default.Text.DirectBinding">Прямая привязка элементов:</x:String>
-    <x:String x:Key="Default.Text.VmBinding">Привязка через ViewModel:</x:String>
+    <sys:String x:Key="Default.Title">1. Привязка по умолчанию</sys:String>
+    <sys:String x:Key="Default.Group.TextBox">TextBox (TwoWay по умолчанию)</sys:String>
+    <sys:String x:Key="Default.Hint.Sync">Изменения в TextBox сразу обновляют TextBlock</sys:String>
+    <sys:String x:Key="Default.Group.Time">TextBlock (OneWay по умолчанию)</sys:String>
+    <sys:String x:Key="Default.Button.Update">Обновить</sys:String>
+    <sys:String x:Key="Default.Group.DirectVsVm">Прямая привязка vs через ViewModel</sys:String>
+    <sys:String x:Key="Default.Text.DirectBinding">Прямая привязка элементов:</sys:String>
+    <sys:String x:Key="Default.Text.VmBinding">Привязка через ViewModel:</sys:String>
 
     <!-- Сообщение -->
-    <x:String x:Key="Message.ItemAdded">Добавлен элемент списка</x:String>
-    <x:String x:Key="Message.Caption">Информация</x:String>
+    <sys:String x:Key="Message.ItemAdded">Добавлен элемент списка</sys:String>
+    <sys:String x:Key="Message.Caption">Информация</sys:String>
 
 </ResourceDictionary>
 

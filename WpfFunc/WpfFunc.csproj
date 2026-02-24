@@ -20,11 +20,7 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <!-- В основной ветке (RESX) исключаем XAML словари из компиляции -->
-  <!-- В ветке XAML-словарей эти файлы нужно будет включить обратно -->
-  <ItemGroup>
-    <Page Remove="Resources\Strings.ru-RU.xaml" />
-    <Page Remove="Resources\Strings.en-US.xaml" />
-  </ItemGroup>
+  <!-- В этой ветке (XAML-словари) XAML словари включены в компиляцию -->
+  <!-- Они автоматически подхватываются как Page элементы -->
 
 </Project>

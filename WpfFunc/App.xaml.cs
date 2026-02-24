@@ -13,12 +13,9 @@ namespace WpfFunc
         {
             base.OnStartup(e);
 
-            // В ЭТОМ ВАРИАНТЕ (ветке) по умолчанию используется подход через RESX.
-            // Для других вариантов лабораторной работы достаточно поменять режим:
-            // LocalizationManager.Instance.SetMode(LocalizationMode.XamlDictionary);
-            // или
-            // LocalizationManager.Instance.SetMode(LocalizationMode.ExternalLibrary);
-            LocalizationManager.Instance.SetMode(LocalizationMode.Resx);
+            // В ЭТОМ ВАРИАНТЕ (ветке) используется подход через XAML ResourceDictionary.
+            // Локализация работает через XAML-словари Resources/Strings.ru-RU.xaml и Resources/Strings.en-US.xaml
+            LocalizationManager.Instance.SetMode(LocalizationMode.XamlDictionary);
             LocalizationManager.Instance.SetCulture("ru-RU");
         }
     }

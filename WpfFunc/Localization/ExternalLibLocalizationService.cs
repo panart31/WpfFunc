@@ -1,31 +1,42 @@
 using System.Globalization;
-
-// Для варианта с внешней библиотекой предполагается библиотека ExternalLocalization
-// со сгенерированным классом ресурсов Strings (resx).
+using System.Reflection;
+using System.Resources;
 
 namespace WpfFunc.Localization;
 
+/// <summary>
+/// Реализация локализации через внешнюю библиотеку классов ExternalLocalization.
+/// Использует RESX-ресурсы из отдельного проекта библиотеки через ResourceManager.
+/// </summary>
 public class ExternalLibLocalizationService : ILocalizationService
 {
+    private readonly ResourceManager _resourceManager;
     public CultureInfo CurrentCulture { get; private set; }
 
     public ExternalLibLocalizationService()
     {
         CurrentCulture = new CultureInfo("ru-RU");
+        
+        // Загружаем сборку внешней библиотеки по имени
+        var assembly = Assembly.Load("ExternalLocalization");
+        
+        // Имя ресурса: ExternalLocalization.Resources.Strings
+        _resourceManager = new ResourceManager(
+            "ExternalLocalization.Resources.Strings",
+            assembly
+        );
     }
 
     public string GetString(string key)
     {
-        // Здесь ожидается обращение к ExternalLocalization.Strings.ResourceManager.
-        // Чтобы проект компилировался до подключения библиотеки,
-        // возвращаем плейсхолдер.
-        return $"[ext:{CurrentCulture.Name}:{key}]";
+        // Используем ResourceManager из внешней библиотеки
+        var value = _resourceManager.GetString(key, CurrentCulture);
+        return value ?? $"[{key}]";
     }
 
     public void SetCulture(string cultureName)
     {
         CurrentCulture = new CultureInfo(cultureName);
-        // При наличии внешней библиотеки нужно будет также установить Culture у её ресурсов.
     }
 }
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="xml:space" default="preserve" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="customtool">
+    <value>ResXFileCodeGenerator</value>
+  </resheader>
+  <resheader name="customtoolnamespace">
+    <value>ExternalLocalization.Resources</value>
+  </resheader>
+
+  <!-- Общие -->
+  <data name="App.Title" xml:space="preserve">
+    <value>ЛР1 - Панов Артем (локализация)</value>
+  </data>
+  <data name="Language.Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Language.English" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="Language.Caption" xml:space="preserve">
+    <value>Язык интерфейса:</value>
+  </data>
+
+  <!-- Вкладки -->
+  <data name="Tab.DefaultBinding" xml:space="preserve">
+    <value>Привязка по умолчанию</value>
+  </data>
+  <data name="Tab.TwoWayBinding" xml:space="preserve">
+    <value>Двухсторонняя привязка</value>
+  </data>
+  <data name="Tab.OneTimeBinding" xml:space="preserve">
+    <value>Одноразовая привязка</value>
+  </data>
+  <data name="Tab.OneWayBinding" xml:space="preserve">
+    <value>Односторонняя привязка</value>
+  </data>
+  <data name="Tab.Triggers" xml:space="preserve">
+    <value>Триггеры</value>
+  </data>
+
+  <!-- DefaultBindingView -->
+  <data name="Default.Title" xml:space="preserve">
+    <value>1. Привязка по умолчанию</value>
+  </data>
+  <data name="Default.Group.TextBox" xml:space="preserve">
+    <value>TextBox (TwoWay по умолчанию)</value>
+  </data>
+  <data name="Default.Hint.Sync" xml:space="preserve">
+    <value>Изменения в TextBox сразу обновляют TextBlock</value>
+  </data>
+  <data name="Default.Group.Time" xml:space="preserve">
+    <value>TextBlock (OneWay по умолчанию)</value>
+  </data>
+  <data name="Default.Button.Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="Default.Group.DirectVsVm" xml:space="preserve">
+    <value>Прямая привязка vs через ViewModel</value>
+  </data>
+  <data name="Default.Text.DirectBinding" xml:space="preserve">
+    <value>Прямая привязка элементов:</value>
+  </data>
+  <data name="Default.Text.VmBinding" xml:space="preserve">
+    <value>Привязка через ViewModel:</value>
+  </data>
+
+  <!-- Для сообщения -->
+  <data name="Message.ItemAdded" xml:space="preserve">
+    <value>Добавлен элемент списка</value>
+  </data>
+  <data name="Message.Caption" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+</root>

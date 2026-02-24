@@ -13,12 +13,9 @@ namespace WpfFunc
         {
             base.OnStartup(e);
 
-            // В ЭТОМ ВАРИАНТЕ (ветке) по умолчанию используется подход через RESX.
-            // Для других вариантов лабораторной работы достаточно поменять режим:
-            // LocalizationManager.Instance.SetMode(LocalizationMode.XamlDictionary);
-            // или
-            // LocalizationManager.Instance.SetMode(LocalizationMode.ExternalLibrary);
-            LocalizationManager.Instance.SetMode(LocalizationMode.Resx);
+            // В ЭТОМ ВАРИАНТЕ (ветке) используется подход через внешнюю библиотеку классов.
+            // Локализация работает через RESX-ресурсы из отдельного проекта ExternalLocalization.
+            LocalizationManager.Instance.SetMode(LocalizationMode.ExternalLibrary);
             LocalizationManager.Instance.SetCulture("ru-RU");
         }
     }

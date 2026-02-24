@@ -1,34 +1,35 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!-- Те же ключи, что и в RESX, но реализованы через XAML-словарь -->
 
     <!-- Общие -->
-    <x:String x:Key="App.Title">Lab 1 - Panov Artem (localization)</x:String>
-    <x:String x:Key="Language.Russian">Russian</x:String>
-    <x:String x:Key="Language.English">English</x:String>
-    <x:String x:Key="Language.Caption">UI language:</x:String>
+    <sys:String x:Key="App.Title">Lab 1 - Panov Artem (localization)</sys:String>
+    <sys:String x:Key="Language.Russian">Russian</sys:String>
+    <sys:String x:Key="Language.English">English</sys:String>
+    <sys:String x:Key="Language.Caption">UI language:</sys:String>
 
     <!-- Вкладки -->
-    <x:String x:Key="Tab.DefaultBinding">Default binding</x:String>
-    <x:String x:Key="Tab.TwoWayBinding">Two-way binding</x:String>
-    <x:String x:Key="Tab.OneTimeBinding">One-time binding</x:String>
-    <x:String x:Key="Tab.OneWayBinding">One-way binding</x:String>
-    <x:String x:Key="Tab.Triggers">Triggers</x:String>
+    <sys:String x:Key="Tab.DefaultBinding">Default binding</sys:String>
+    <sys:String x:Key="Tab.TwoWayBinding">Two-way binding</sys:String>
+    <sys:String x:Key="Tab.OneTimeBinding">One-time binding</sys:String>
+    <sys:String x:Key="Tab.OneWayBinding">One-way binding</sys:String>
+    <sys:String x:Key="Tab.Triggers">Triggers</sys:String>
 
     <!-- DefaultBindingView -->
-    <x:String x:Key="Default.Title">1. Default binding</x:String>
-    <x:String x:Key="Default.Group.TextBox">TextBox (TwoWay by default)</x:String>
-    <x:String x:Key="Default.Hint.Sync">Changes in TextBox immediately update TextBlock</x:String>
-    <x:String x:Key="Default.Group.Time">TextBlock (OneWay by default)</x:String>
-    <x:String x:Key="Default.Button.Update">Update</x:String>
-    <x:String x:Key="Default.Group.DirectVsVm">Direct binding vs ViewModel</x:String>
-    <x:String x:Key="Default.Text.DirectBinding">Direct binding of elements:</x:String>
-    <x:String x:Key="Default.Text.VmBinding">Binding through ViewModel:</x:String>
+    <sys:String x:Key="Default.Title">1. Default binding</sys:String>
+    <sys:String x:Key="Default.Group.TextBox">TextBox (TwoWay by default)</sys:String>
+    <sys:String x:Key="Default.Hint.Sync">Changes in TextBox immediately update TextBlock</sys:String>
+    <sys:String x:Key="Default.Group.Time">TextBlock (OneWay by default)</sys:String>
+    <sys:String x:Key="Default.Button.Update">Update</sys:String>
+    <sys:String x:Key="Default.Group.DirectVsVm">Direct binding vs ViewModel</sys:String>
+    <sys:String x:Key="Default.Text.DirectBinding">Direct binding of elements:</sys:String>
+    <sys:String x:Key="Default.Text.VmBinding">Binding through ViewModel:</sys:String>
 
     <!-- Сообщение -->
-    <x:String x:Key="Message.ItemAdded">List item has been added</x:String>
-    <x:String x:Key="Message.Caption">Information</x:String>
+    <sys:String x:Key="Message.ItemAdded">List item has been added</sys:String>
+    <sys:String x:Key="Message.Caption">Information</sys:String>
 
 </ResourceDictionary>
 

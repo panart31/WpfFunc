@@ -24,7 +24,10 @@
     <ProjectReference Include="..\ExternalLocalization\ExternalLocalization.csproj" />
   </ItemGroup>
 
-  <!-- В этой ветке (XAML-словари) XAML словари включены в компиляцию -->
-  <!-- Они автоматически подхватываются как Page элементы -->
+  <!-- В этой ветке (внешняя библиотека) XAML словари исключены из компиляции -->
+  <ItemGroup>
+    <Page Remove="Resources\Strings.ru-RU.xaml" />
+    <Page Remove="Resources\Strings.en-US.xaml" />
+  </ItemGroup>
 
 </Project>

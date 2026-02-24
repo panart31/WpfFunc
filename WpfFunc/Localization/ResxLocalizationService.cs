@@ -3,10 +3,7 @@ using System.Resources;
 
 namespace WpfFunc.Localization;
 
-/// <summary>
-/// Реализация локализации через .resx файлы в WPF-проекте.
-/// Ожидает наличие ресурсов с базовым именем "Resources.Strings".
-/// </summary>
+// Локализация через RESX
 public class ResxLocalizationService : ILocalizationService
 {
     private readonly ResourceManager _resourceManager;

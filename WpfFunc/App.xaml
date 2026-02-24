@@ -1,5 +1,59 @@
 ﻿<Application x:Class="WpfFunc.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:WpfFunc.Localization"
              StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Базовые стили для современного вида приложения -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Для варианта с XAML-словарами будут подключаться словари строк -->
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="AppPrimaryBrush" Color="#1976D2" />
+            <SolidColorBrush x:Key="AppAccentBrush" Color="#FFC107" />
+            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FAFAFA" />
+
+            <Style TargetType="Window">
+                <Setter Property="Background" Value="{StaticResource AppBackgroundBrush}" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Padding" Value="10,5" />
+                <Setter Property="Background" Value="{StaticResource AppPrimaryBrush}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                    CornerRadius="4">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Margin="{TemplateBinding Padding}" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1E88E5" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#0D47A1" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" Value="#BDBDBD" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="TabControl">
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

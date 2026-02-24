@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using WpfFunc.Localization;
 
 namespace WpfFunc
 {
@@ -78,6 +80,28 @@ namespace WpfFunc
         public ObservableCollection<string> Items { get; } = new();
 
         /// <summary>
+        /// Доступные языки интерфейса.
+        /// </summary>
+        public ObservableCollection<CultureInfo> Languages { get; } = new(LocalizationManager.Instance.AvailableCultures);
+
+        private CultureInfo _selectedLanguage = LocalizationManager.Instance.CurrentCulture;
+
+        /// <summary>
+        /// Выбранный язык UI. При изменении обновляет культуру в LocalizationManager.
+        /// </summary>
+        public CultureInfo SelectedLanguage
+        {
+            get => _selectedLanguage;
+            set
+            {
+                if (SetField(ref _selectedLanguage, value))
+                {
+                    LocalizationManager.Instance.SetCulture(value.Name);
+                }
+            }
+        }
+
+        /// <summary>
         /// Команда обновления текста с текущим временем.
         /// Демонстрирует обновление свойства через команду.
         /// </summary>
@@ -120,6 +144,12 @@ namespace WpfFunc
             _addItemCommand ??= new RelayCommand(() =>
             {
                 Items.Add($"Элемент {Items.Count + 1}");
+
+                // Пример локализованного сообщения (через RESX/XAML/внешнюю библиотеку).
+                var text = LocalizationManager.Instance["Message.ItemAdded"];
+                var caption = LocalizationManager.Instance["Message.Caption"];
+
+                System.Windows.MessageBox.Show(text, caption);
             });
 
         /// <summary>

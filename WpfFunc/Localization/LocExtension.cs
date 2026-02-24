@@ -4,10 +4,7 @@ using System.Windows.Markup;
 
 namespace WpfFunc.Localization;
 
-/// <summary>
-/// Markup-расширение для удобной привязки локализованных строк:
-/// Text="{loc:Loc Key=Default.Title}".
-/// </summary>
+// Markup-расширение для локализации
 [MarkupExtensionReturnType(typeof(BindingExpression))]
 public class LocExtension : MarkupExtension
 {

@@ -5,19 +5,13 @@ using System.Globalization;
 
 namespace WpfFunc.Localization;
 
-/// <summary>
-/// Глобальный менеджер локализации, к которому привязывается UI.
-/// Позволяет подменять реализацию ILocalizationService (RESX, XAML-словари, внешняя библиотека).
-/// </summary>
+// Менеджер локализации
 public class LocalizationManager : INotifyPropertyChanged
 {
     private static readonly LocalizationManager _instance = new();
 
     private ILocalizationService _service;
 
-    /// <summary>
-    /// Текущий режим/подход к локализации.
-    /// </summary>
     public LocalizationMode Mode { get; private set; }
 
     public static LocalizationManager Instance => _instance;
@@ -26,14 +20,10 @@ public class LocalizationManager : INotifyPropertyChanged
 
     private LocalizationManager()
     {
-        // По умолчанию используем RESX-подход.
         Mode = LocalizationMode.Resx;
         _service = new ResxLocalizationService();
     }
 
-    /// <summary>
-    /// Индексатор для привязки из XAML: {Binding [App.Title], Source={x:Static loc:LocalizationManager.Instance}}
-    /// </summary>
     public string this[string key] => _service.GetString(key);
 
     public CultureInfo CurrentCulture => _service.CurrentCulture;
@@ -44,9 +34,7 @@ public class LocalizationManager : INotifyPropertyChanged
         OnCultureChanged();
     }
 
-    /// <summary>
-    /// Сменить реализацию локализации (для разных веток: RESX, XAML словари, внешняя библиотека).
-    /// </summary>
+    // Переключение режима локализации
     public void SetMode(LocalizationMode mode)
     {
         if (Mode == mode)
@@ -66,14 +54,10 @@ public class LocalizationManager : INotifyPropertyChanged
 
     private void OnCultureChanged()
     {
-        // Уведомляем все привязки индексатора.
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentCulture)));
     }
 
-    /// <summary>
-    /// Доступные культуры интерфейса.
-    /// </summary>
     public IReadOnlyList<CultureInfo> AvailableCultures { get; } =
         new[]
         {
@@ -82,24 +66,11 @@ public class LocalizationManager : INotifyPropertyChanged
         };
 }
 
-/// <summary>
-/// Режим / подход к локализации.
-/// </summary>
+// Режимы локализации
 public enum LocalizationMode
 {
-    /// <summary>
-    /// Локализация через .resx файлы в самом WPF-проекте.
-    /// </summary>
     Resx,
-
-    /// <summary>
-    /// Локализация через XAML ResourceDictionary с ключами строк.
-    /// </summary>
     XamlDictionary,
-
-    /// <summary>
-    /// Локализация через внешнюю библиотеку классов.
-    /// </summary>
     ExternalLibrary
 }
 

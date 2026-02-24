@@ -4,10 +4,7 @@ using System.Windows;
 
 namespace WpfFunc.Localization;
 
-/// <summary>
-/// Локализация через XAML ResourceDictionary.
-/// Ожидает наличие словарей Resources\Strings.ru-RU.xaml, Resources\Strings.en-US.xaml с x:String по ключам.
-/// </summary>
+// Локализация через XAML ResourceDictionary
 public class XamlDictionaryLocalizationService : ILocalizationService
 {
     public CultureInfo CurrentCulture { get; private set; }
